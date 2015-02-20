@@ -21,6 +21,10 @@ NEI.Cities<-filter(NEI,fips=="24510"|fips=="06037")
 ## Merge and filter NEI.BA for motor vehicle related sources
 NEI.filter<-merge(NEI.Cities,SCC.filter,by.x="SCC",by.y="SCC")
 
+## Perform group by fips (which is city) then by year.
+## Next summarize according to motor vehicle related Emissions.
+## Add city column to NEI.output with a more descriptive label 
+## to be used in plot later on.
 NEI.output<- NEI.filter %>% 
     group_by(fips,year) %>% 
     summarize(emit.sum=sum(Emissions)) %>% 
