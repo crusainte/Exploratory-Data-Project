@@ -15,8 +15,7 @@ NEI.output<- NEI %>%
     filter(fips=="24510") %>%
     group_by(year) %>% 
     summarize(emit.sum=sum(Emissions)) %>% 
-    mutate(emit.sum=emit.sum/10^3
-    )
+    mutate(emit.sum=emit.sum/10^3)
 
 ## Create png image to plot on
 png("plot2.png")
@@ -26,7 +25,7 @@ png("plot2.png")
 plot(NEI.output$year,NEI.output$emit.sum,lwd=3,type="h",
      xlab="Year",
      ylab="PM2.5 Emissions (Kilotons)",
-     main="Total PM2.5 emissions from Baltimore City, Maryland"
+     main="Total PM2.5 Emissions from Baltimore City, Maryland"
 )
 
 ## Add a line plot across the existing plot to better reveal the relationship

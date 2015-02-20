@@ -14,13 +14,7 @@ library(dplyr)
 NEI.output<- NEI %>% 
     group_by(year) %>% 
     summarize(emit.sum=sum(Emissions)) %>% 
-    mutate(emit.sum=emit.sum/10^6
-    )
-NEI.output<- NEI %>% 
-    group_by(year) %>% 
-    summarize(emit.sum=sum(Emissions)) %>% 
-    mutate(emit.sum=emit.sum/10^6
-    )
+    mutate(emit.sum=emit.sum/10^6)
 
 ## Create png image to plot on
 png("plot1.png")
@@ -30,7 +24,7 @@ png("plot1.png")
 plot(NEI.output$year,NEI.output$emit.sum,lwd=3,type="h",
      xlab="Year",
      ylab="PM2.5 Emissions (Megatons)",
-     main="Total PM2.5 emissions from all US sources"
+     main="Total PM2.5 Emissions from across US"
      )
 
 ## Add a line plot across the existing plot to better reveal the relationship
